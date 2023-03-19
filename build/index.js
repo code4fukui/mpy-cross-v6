@@ -1,4 +1,5 @@
-"use strict";
+import { MpyCross } from "./mpy-cross-v6.js";
+
 var __spreadArrays = (this && this.__spreadArrays) || function () {
     for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
     for (var r = Array(s), k = 0, i = 0; i < il; i++)
@@ -6,13 +7,6 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
             r[k] = a[j];
     return r;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-// @ts-ignore: no typing
-var mpy_cross_v6_1 = __importDefault(require("./mpy-cross-v6"));
-var MpyCross = mpy_cross_v6_1.default;
 /**
  * Compiles a MicroPython source code file using mpy-cross.
  * @param fileContents The contents of the .py file to be compile.
@@ -20,7 +14,7 @@ var MpyCross = mpy_cross_v6_1.default;
  * @param options Command line arguments for mpy-cross.
  * @param wasmPath Path to location of `mpy-cross-v6.wasm`.
  */
-function compile(fileName, fileContents, options, wasmPath) {
+export function compile(fileName, fileContents, options, wasmPath) {
     return new Promise(function (resolve, reject) {
         try {
             var args = [fileName];
@@ -47,4 +41,3 @@ function compile(fileName, fileContents, options, wasmPath) {
         }
     });
 }
-exports.compile = compile;
